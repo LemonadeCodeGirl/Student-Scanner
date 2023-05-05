@@ -3,14 +3,26 @@
 <head>
     <meta charset="utf-8">
     <title>sample</title>
-        <link href="style.css" rel="stylesheet">
-        <script type="text/javascript" src="/eel.js"></script
+        <link href="styles.css" rel="stylesheet">
+        <script type="text/javascript" src="/eel.js"></script>
         <script type="text/javascript" src="main.js"></script>
 </head>
-<body>
-    <h1>Student Scanner</h1>
+<body class="bg-lime-800 text-center text-white">
+    <h1 class="text-4xl p-5">Student Scanner</h1>
 
-    <button onclick="">Go/Ret from Office</button>
-    <button onclick="">Leave</button>
+    <h1 id="number">#</h1>
+
+    <form>
+        <input type="text" name="studentId" id="studentId" class="text-lime-800">
+        <input type="submit" class="bg-lime-100 text-lime-800 m-3 rounded-full p-2" onclick="">
+        <!-- <button class="bg-lime-100 text-lime-800 m-3 rounded-full p-2">Submit</button> -->
+    </form>
+    
+    <!-- <button class="bg-lime-100 text-lime-800 m-3 rounded-full p-2">Submit</button> -->
+
+    <br><br>
+
+    <button onclick="" id="testButton1" class="bg-white text-lime-800 m-3 rounded-full p-2 mr-0">Go/Ret from Office</button>
+    <button onclick="" class="bg-white text-lime-800 m-3 rounded-full p-2 ml-0">Leave</button>
 </body>
 </html>
