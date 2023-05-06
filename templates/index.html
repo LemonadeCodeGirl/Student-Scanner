@@ -7,12 +7,8 @@
         <script type="text/javascript" src="/eel.js"></script>
         <script type="text/javascript" src="main.js"></script>
 </head>
-<body class="bg-lime-800 text-center text-white">
-    <h1 class="text-4xl p-5" id="titleText">Student Scanner</h1>
-
-    <h1 id="number"></h1>
-    <h1 id="info">thing</h1>
-
+<body class="bg-lime-800 text-center text-white" onload="hide()">
+    
     <script>
         function test(){
             // document.getElementById("number").innerHTML = "hi";
@@ -25,24 +21,69 @@
 
         }
 
-        function update(){
-            document.getElementById("info").innerHTML = "number";
+        function checkIn(){
+            document.getElementById("number").innerHTML =  document.getElementById("studentId").value;
+            tempId = document.getElementById("studentId").value;
+
+            eel.attendance(tempId);
+        }
+
+        function bathroom(){
+            // document.getElementById("number").innerHTML =  "thing";
+            document.getElementById("number").innerHTML =  document.getElementById("studentId").value;
+            tempId = document.getElementById("studentId").value;
+
+            eel.leftToBathroom(tempId);
+        }
+
+        function hide(){
+            // document.getElementById("place").style.display = "none";
+        }
+
+        function show(){
+            // document.getElementById("place").style.display = "block";
+        }
+
+        function otherDest(){
+            document.getElementById("number").innerHTML =  document.getElementById("studentId").value;
+            tempId = document.getElementById("studentId").value;
+            place = document.getElementById("place").value;
+
+            document.getElementById("number2").innerHTML =  document.getElementById("place").value;
+            eel.otherdest(tempId, place);
+            // eel.leftToBathroom(tempId);
+            
+        }
+
+        function dismiss(){
+            eel.dismiss(document.getElementById("studentId").value);
         }
 
     </script>
+    <h1 class="text-4xl p-5" id="titleText">Student Scanner</h1>
+    <h1 id="number"></h1>
+    <h1 id="number2"></h1>
 
-    <form>
-        <input type="text" name="studentId" id="studentId" class="text-lime-800">
-        <!-- <input type="button" class="bg-lime-100 text-lime-800 m-3 rounded-full p-2" onmouseover="test()" onmousedown="update()"> -->
-        <button type='button' class="bg-lime-100 text-lime-800 m-3 rounded-full p-2" onmouseover="test()" onmousedown="update()">submit</button> 
-        <!-- <button class="bg-lime-100 text-lime-800 m-3 rounded-full p-2">Submit</button> -->
-    </form>
+    <div class="">
+        <form onsubmit="return false">
+            <input type="text" name="studentId" id="studentId" class="order-2 border-rose-500">
+            <!-- <input type="button" class="bg-lime-100 text-lime-800 m-3 rounded-full p-2" onmouseover="test()" onmousedown="update()"> -->
+            <button type='button' class="bg-lime-100 text-lime-800 m-3 rounded-full p-2" onmousedown="checkIn()">submit</button> 
+            <!-- <button class="bg-lime-100 text-lime-800 m-3 rounded-full p-2">Submit</button> -->
+        </form>
+    </div>
     
     <!-- <button class="bg-lime-100 text-lime-800 m-3 rounded-full p-2">Submit</button> -->
 
+    <input type="text" name="studentId" id="place" class="text-lime-800">
+
     <br><br>
 
-    <button onclick="" class="bg-white text-lime-800 m-3 rounded-full p-2 mr-0">Go/Ret from Office</button>
-    <button onclick="" class="bg-white text-lime-800 m-3 rounded-full p-2 ml-0">Leave</button>
+    <button onclick="show(), otherDest()" class="bg-white text-lime-800 m-3 rounded-full p-2 mr-0">Go/Ret from Office</button>
+    <button onclick="dismiss()" class="bg-white text-lime-800 m-3 rounded-full p-2 ml-0">Leave</button>
+
+
+    <h1>print report</h1>
+    <button>print</button>
 </body>
 </html>
